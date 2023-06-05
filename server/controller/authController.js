@@ -83,9 +83,15 @@ const authController = {
         }
     },
 
-    currentuser: (req, res) => {
+    currentuser: async (req, res) => {
         try {
-            res.json({ msg: "current user called" })
+            const data = await User.findById({ _id: req.user.id }).select('-password')
+            if (!data)
+                return res.json({ msg: "User not Found" })
+
+            res.json({ data })
+
+            res.json({ msg: req.user })
         }
         catch (err) {
             res.status(500).json({ msg: err.message })
