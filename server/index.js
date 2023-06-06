@@ -20,7 +20,9 @@ app.use(cors())   // this helps the backend to allow the request that is sent fr
 
 app.use(cookieparser(process.env.SECRET_TOKEN))
 
-app.use('/api/v1/auth', require('./Route/authRoute'))
+app.use('/api/v1/auth', require('./Route/authRoute'))  // for user auth 
+
+app.use('/api/category', require('./Route/categoryRoute'))   /// route for category
 
 app.all('**', async (req, res) => {
     return res.status(404).json({ msg: `Requested path not Found` })
