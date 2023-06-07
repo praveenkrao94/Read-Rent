@@ -28,7 +28,7 @@ const categoryCtrl = {
         try {
             const { title, desc } = req.body
 
-            let extuser = await category.findOne({ title })
+            let extuser = await category.findOne({ title })     /// title: req.body.title
 
             if (extuser)
                 return res.json({ msg: `${extuser.title} already exist` })

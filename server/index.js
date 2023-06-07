@@ -24,6 +24,8 @@ app.use('/api/v1/auth', require('./Route/authRoute'))  // for user auth
 
 app.use('/api/category', require('./Route/categoryRoute'))   /// route for category
 
+app.use('/api/book', require('./Route/bookRoute'))   /// route for Books
+
 app.all('**', async (req, res) => {
     return res.status(404).json({ msg: `Requested path not Found` })
 })
