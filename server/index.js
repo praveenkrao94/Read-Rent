@@ -26,6 +26,10 @@ app.use('/api/category', require('./Route/categoryRoute'))   /// route for categ
 
 app.use('/api/book', require('./Route/bookRoute'))   /// route for Books
 
+app.use('/api/rent', require('./Route/rentRoute'))   /// route for Rent
+
+
+
 app.all('**', async (req, res) => {
     return res.status(404).json({ msg: `Requested path not Found` })
 })
